@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ProjectMapperTest {
 
-    private static final ProjectMapper MAPPER =  new ProjectMapper();
+    private static final ProjectMapper MAPPER = new ProjectMapper();
 
     @Test
     public void testToEntity() {

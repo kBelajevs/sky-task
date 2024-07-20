@@ -37,7 +37,7 @@ public class UserControllerIntegrationTest {
     protected String userAuth;
 
     @BeforeEach
-    public void setAuth(){
+    public void setAuth() {
         setAdminAuth();
         setUserAuth();
     }

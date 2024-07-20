@@ -10,6 +10,8 @@ import java.util.Optional;
 public interface ProjectRepository extends JpaRepository<ProjectEntity, Long> {
 
     List<ProjectEntity> findByUsersEmail(String mail);
+
     Optional<ProjectEntity> findByName(String name);
+
     void deleteByName(String name);
 }

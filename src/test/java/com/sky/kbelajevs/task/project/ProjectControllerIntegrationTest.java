@@ -40,7 +40,7 @@ public class ProjectControllerIntegrationTest {
     protected String userAuth;
 
     @BeforeEach
-    public void setAuth(){
+    public void setAuth() {
         setAdminAuth();
         setUserAuth();
     }
@@ -186,7 +186,7 @@ public class ProjectControllerIntegrationTest {
                         .content(MAPPER.writeValueAsString(requestDTO)))
                 .andExpect(status().isOk());
 
-        mockMvc.perform(delete("/api/projects/{projectId}", "testDeleteProject_success")  .header("Authorization", "Bearer " + adminAuth))
+        mockMvc.perform(delete("/api/projects/{projectId}", "testDeleteProject_success").header("Authorization", "Bearer " + adminAuth))
                 .andExpect(status().isOk());
 
         mockMvc.perform(get("/api/projects/{projectName}", "testDeleteProject_success").header("Authorization", "Bearer " + adminAuth))

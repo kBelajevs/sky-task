@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class PageDTO<T>{
+public class PageDTO<T> {
 
     public PageDTO(Page page) {
         setPageNumber(page.getNumber());

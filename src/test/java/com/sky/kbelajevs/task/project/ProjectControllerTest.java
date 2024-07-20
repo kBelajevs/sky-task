@@ -19,7 +19,7 @@ public class ProjectControllerTest {
     private static final ProjectController CONTROLLER = new ProjectController(SERVICE, MAPPER);
 
     @Before
-    public void resetMocks(){
+    public void resetMocks() {
         reset(SERVICE, MAPPER);
     }
 
@@ -79,7 +79,7 @@ public class ProjectControllerTest {
 
     @Test
     public void testGetProjectsOfAUser() {
-        var mail  = "test";
+        var mail = "test";
         var project = new ProjectEntity();
         var responseDTO = new ProjectResponseDTO();
         when(SERVICE.findProjectsByUserMail(mail)).thenReturn(List.of(project));

@@ -34,11 +34,11 @@ public class ProjectService {
     }
 
     @Transactional
-    public List<ProjectEntity> findProjectsByUserMail(String mail){
+    public List<ProjectEntity> findProjectsByUserMail(String mail) {
         return projectRepository.findByUsersEmail(mail);
     }
 
-    public ProjectEntity findByName(String name){
+    public ProjectEntity findByName(String name) {
         return projectRepository.findByName(name).orElseThrow(ProjectNotFoundException::new);
     }
 }

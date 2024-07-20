@@ -16,7 +16,7 @@ public class UserController {
 
     @GetMapping("/{email}")
     public UserResponseDTO getUser(@PathVariable("email") String email) {
-        var userEntity =  userService.getUserByEmail(email);
+        var userEntity = userService.getUserByEmail(email);
         return userMapper.toDTO(userEntity);
     }
 

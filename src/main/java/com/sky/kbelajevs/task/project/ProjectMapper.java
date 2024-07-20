@@ -16,7 +16,7 @@ public class ProjectMapper {
     }
 
     public ProjectResponseDTO toDTO(ProjectEntity entity) {
-        if(entity == null){
+        if (entity == null) {
             return null;
         }
         var responseDTO = new ProjectResponseDTO();

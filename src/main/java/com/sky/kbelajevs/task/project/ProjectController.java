@@ -12,20 +12,20 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/projects")
-public class ProjectController  {
+public class ProjectController {
 
     private final ProjectService projectService;
     private final ProjectMapper projectMapper;
 
     @GetMapping("/{projectName}")
     public ProjectResponseDTO getProject(@PathVariable("projectName") String projectName) {
-        var entity =  projectService.getProjectByName(projectName);
+        var entity = projectService.getProjectByName(projectName);
         return projectMapper.toDTO(entity);
     }
 
     @GetMapping(params = {"page", "size"})
     public PageDTO<ProjectResponseDTO> getProjects(@RequestParam("page") int page,
-                                          @RequestParam("size") int size
+                                                   @RequestParam("size") int size
     ) {
         var entityPage = projectService.findPage(Pageable.ofSize(size).withPage(page));
         var pageDTO = new PageDTO<ProjectResponseDTO>(entityPage);

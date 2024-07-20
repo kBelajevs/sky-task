@@ -31,18 +31,18 @@ public class SecurityConfig {
                         new JwtRequestFilter(customUserDetailsService, jwtUtil),
                         UsernamePasswordAuthenticationFilter.class
                 )
-                .authorizeHttpRequests((requests) ->  requests
+                .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/login", "/swagger-ui/**", "/api-docs/**", "/api/auth/login").permitAll()
                         // user endpoints
                         .requestMatchers(HttpMethod.POST, "/api/users").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/api/users/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/api/users").hasAnyRole("ADMIN","MANAGER")
-                        .requestMatchers(HttpMethod.GET, "/api/users/**").hasAnyRole("ADMIN","MANAGER","USER")
+                        .requestMatchers(HttpMethod.GET, "/api/users").hasAnyRole("ADMIN", "MANAGER")
+                        .requestMatchers(HttpMethod.GET, "/api/users/**").hasAnyRole("ADMIN", "MANAGER", "USER")
                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
                         // project endpoints
                         .requestMatchers(HttpMethod.POST, "/api/projects").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/api/projects/**").hasRole("ADMIN")
-                        .requestMatchers(HttpMethod.GET, "/api/projects/**").hasAnyRole("ADMIN","MANAGER")
+                        .requestMatchers(HttpMethod.GET, "/api/projects/**").hasAnyRole("ADMIN", "MANAGER")
                         .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
                 .csrf(AbstractHttpConfigurer::disable)

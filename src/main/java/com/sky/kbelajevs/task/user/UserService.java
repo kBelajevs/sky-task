@@ -33,16 +33,16 @@ public class UserService {
     }
 
     @Transactional
-    public void assignExternalProjectToUser(String userMail, String projectName){
+    public void assignExternalProjectToUser(String userMail, String projectName) {
         var project = projectService.findByName(projectName);
-        var user =getUserByEmail(userMail);
+        var user = getUserByEmail(userMail);
 
         user.getProjects().add(project);
 
     }
 
     @Transactional
-    public void removerExternalProjectFromUser(String userMail, String projectName){
+    public void removerExternalProjectFromUser(String userMail, String projectName) {
         var project = projectService.findByName(projectName);
         var user = getUserByEmail(userMail);
 
